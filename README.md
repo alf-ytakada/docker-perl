@@ -11,3 +11,13 @@
 dockerhubは
 　https://hub.docker.com/r/d2cdytakada/perl/
 
+build
+===
+
+   d build -t d2cdytakada/perl  .
+
+push
+===
+
+   d push d2cdytakada/perl:latest
+

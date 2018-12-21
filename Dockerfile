@@ -15,3 +15,19 @@ RUN cpanm GD  AnyEvent Cache::FastMmap Cache::Memcached::Fast \
 			XML::LibXML YAML::Syck
 
 RUN cpanm Starman Starlet Gazelle
+RUN cpanm Digest::SHA1 Digest::SHA UNIVERSAL::require Plack::Session \
+			IO::Dirent DateTime
+
+RUN cpanm DateTime::Format::MySQL XML::TreePP
+RUN cpanm IO::Socket::SSL
+#RUN cpanm DateTime
+
+RUN cpanm Router::Simple Plack::Middleware::Session Plack::Builder::Conditionals Carp \
+		Crypt::SaltedHash Email::MIME::Creator Email::Sender::Simple FormValidator::Lite \
+		HTML::Entities HTTP::Request::Common IO::All MIME::Base64 Net::OAuth::Client \
+		Net::Twitter::Lite::WithAPIv1_1 Text::CSV_XS 
+
+RUN cpanm -n Net::Stomp URL::Encode Archive::Zip File::chdir Plack::Middleware::ReverseProxy
+RUN cpanm Data::ICal DateTime
+
+CMD ["perl5.24.1", "-de0"]
