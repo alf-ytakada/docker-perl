@@ -1,4 +1,4 @@
-FROM perl:5.24.1
+FROM perl:5.28.2
 RUN apt-get update; \
 	apt-get install -y libgd-dev
 
@@ -25,9 +25,14 @@ RUN cpanm IO::Socket::SSL
 RUN cpanm Router::Simple Plack::Middleware::Session Plack::Builder::Conditionals Carp \
 		Crypt::SaltedHash Email::MIME::Creator Email::Sender::Simple FormValidator::Lite \
 		HTML::Entities HTTP::Request::Common IO::All MIME::Base64 Net::OAuth::Client \
-		Net::Twitter::Lite::WithAPIv1_1 Text::CSV_XS 
+		Net::Twitter::Lite::WithAPIv1_1 Text::CSV_XS  Net::IP
 
 RUN cpanm -n Net::Stomp URL::Encode Archive::Zip File::chdir Plack::Middleware::ReverseProxy
-RUN cpanm Data::ICal DateTime
+RUN cpanm Data::ICal DateTime Amon2
+RUN cpanm Devel::NYTProf Devel::KYTProf
+RUN cpanm Smart::Args Redis::Fast 
 
-CMD ["perl5.24.1", "-de0"]
+
+RUN rm -rf ~/.cpanm/
+
+CMD ["perl5.28.2", "-de0"]
